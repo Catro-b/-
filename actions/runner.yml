@@ -1,0 +1,3 @@
+$ Invoke-WebRequest -Uri https://github.com/actions/runner/releases/download/v2.324.0/actions-runner-win-x64-2.324.0.zip -OutFile actions-runner-win-x64-2.324.0.zipCopied! # Optional: Validate the hash
+$ if((Get-FileHash -Path actions-runner-win-x64-2.324.0.zip -Algorithm SHA256).Hash.ToUpper() -ne '78b70ddc65e0c2f1940195859e453bdfaa098fe3475cf89bc9378614d2adc197'.ToUpper()){ throw 'Computed checksum did not match' }# Extract the installer
+$ Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::ExtractToDirectory("$PWD/actions-runner-win-x64-2.324.0.zip", "$PWD")
